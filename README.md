@@ -5,20 +5,19 @@
 **An Offline-First Vernacular Agentic AI Co-Pilot & Digital Batch Passport Platform for Micro Food Processors.**
 
 **Tech4Bharat – GAVS Hackathon 2026**
-
 **Problem Statement 6.3** | **Agriculture and Food Processing** | **Agentic AI**
 
 ---
 
 ## 1. Overview
 
-Home-based and micro food processing units form the backbone of India's local food economy — producing **pickles, spice powders (podis/masalas), millet snacks, papads, flour mill products, and cold-pressed oils**. However, most micro-units handle food safety registration tiers, ingredient labelling, batch logs, shelf-life estimation, and unit costing informally. Because they lack compliant labels and traceable batch documentation, organised supermarkets, regional distributors, and online marketplaces (ONDC, Amazon, BigBasket) reject their products — locking them out of markets beyond their town.
+Home-based and micro food processing units form the backbone of India's local food economy — producing **pickles, spice powders (podis/masalas), millet snacks, papads, flour mill products, and cold-pressed oils**. Most micro-units handle food safety registration, ingredient labelling, batch logs, shelf-life estimation, and unit costing informally, and get rejected by supermarkets, regional distributors, and online marketplaces (ONDC, Amazon, BigBasket) as a result.
 
-**AhaarSetu AI** solves both compliance readiness and unit economics through one integrated, low-literacy mobile platform that helps micro food processors:
+**AhaarSetu AI** solves compliance readiness and unit economics through one integrated, low-literacy mobile platform:
 
-- Log daily recipes and production batches via **vernacular voice input** (Telugu, Kannada, Hindi, Tamil).
-- Generate **print-ready FSSAI & Legal Metrology compliant label drafts** with automatic descending ingredient sorting, allergen detection, and 100g nutritional panels.
-- Compute **true landed unit costs and retail channel margins** to prevent selling at a loss.
+- Log daily batches via **vernacular voice input** (Telugu, Kannada, Hindi, Tamil).
+- Generate **print-ready FSSAI & Legal Metrology compliant label drafts** with descending ingredient sorting, allergen detection, and 100g nutritional panels.
+- Compute **true landed unit costs and retail margins** to prevent selling at a loss.
 - Maintain **traceable batch records** linked to raw ingredient purchase dates.
 - Generate **QR-linked Digital Batch Passports** and **1-page Buyer Readiness Dossiers** for retail onboarding.
 
@@ -30,15 +29,15 @@ Our initial implementation focuses on **pickles, spice powders, millet snacks, a
 
 **Problem 6.3:** *Micro food processors cannot meet the requirements to sell beyond their town.*
 
-Home-based and women-led micro food units currently rely on memory, handwritten registers, and locally printed stickers. This creates six critical bottlenecks:
+Home-based and women-led micro food units rely on memory, handwritten registers, and locally printed stickers. This creates six critical bottlenecks:
 
 | Challenge | Current Informal Practice | Real-World Impact |
 |---|---|---|
-| **FSSAI Registration Gaps** | Holding basic registration without knowing turnover thresholds or product category codes for inter-state/online sales. | Immediate rejection by supermarket procurement teams and e-commerce onboarding portals. |
-| **Non-Compliant Labels** | Locally printed stickers missing descending ingredient weights, 100g nutrition tables, allergen alerts, and required font heights. | Exposure to misbranding penalties (up to ₹3 lakh under FSS Act) and stock rejection. |
+| **FSSAI Registration Gaps** | Holding basic registration without knowing turnover thresholds or category codes for inter-state/online sales. | Immediate rejection by supermarket procurement teams and e-commerce onboarding portals. |
+| **Non-Compliant Labels** | Stickers missing descending ingredient weights, 100g nutrition tables, allergen alerts, and required font heights. | Exposure to misbranding penalties (up to ₹3 lakh under FSS Act) and stock rejection. |
 | **Memory-Based Batches** | Recipes measured informally without batch IDs or raw-material lot tracking. | Zero recall traceability; if one jar spoils, the entire consignment is rejected. |
-| **Guessed Shelf-Life** | Copying expiry dates from competitors without lab validation or moisture/preservative checks. | Post-sale spoilage, customer complaints, and damaged brand reputation. |
-| **Guesswork Pricing** | Pricing based only on raw ingredients, ignoring jars/pouches, LPG fuel, labour, spoilage, and 15–25% retail margins. | Micro-units unknowingly sell below true cost when scaling into retail channels. |
+| **Guessed Shelf-Life** | Copying expiry dates from competitors without lab validation or moisture checks. | Post-sale spoilage, customer complaints, and damaged brand reputation. |
+| **Guesswork Pricing** | Pricing based only on raw ingredients, ignoring jars, LPG fuel, labour, spoilage, and 15–25% retail margins. | Micro-units unknowingly sell below true cost when scaling into retail channels. |
 | **Buyer Trust Gap** | No structured quality, lab, or batch documentation to share with outside buyers. | Retail buyers face high onboarding friction and avoid sourcing from small units. |
 
 ---
@@ -51,36 +50,36 @@ AhaarSetu AI is designed to serve **all four stakeholder groups** identified in 
 
 | Stakeholder | Pain Point | How AhaarSetu Addresses It |
 |---|---|---|
-| **Food Safety Officers (FSSAI / State FDA)** | Difficulty verifying that micro-units hold the correct registration tier (Basic vs. State License) for their turnover and sales channel. | The FSSAI Compliance Agent automatically checks the unit's declared annual turnover against the ₹12 lakh Basic / ₹20 crore State license thresholds and flags any mismatch before the owner prints a label. Every Batch Passport carries the FSSAI number and tier for officer inspection. |
-| **Retailers & Online Marketplaces (Supermarkets, ONDC, Amazon)** | High vendor-vetting friction; no standardised, verifiable batch documentation from small suppliers. | The Digital Batch Passport with a scannable QR code provides retailers one-click access to ingredient lineage, allergen summary, lab test status, and owner sign-off — replacing time-consuming manual supplier audits. |
-| **Packaging Suppliers** | Micro-units order incorrect pack sizes or labels because they do not calculate accurate batch yields in advance. | The Unit Economics Agent computes the exact quantity of jars/pouches required per batch from declared batch weight and pack-size selection, reducing over-ordering and label reprinting waste. |
-| **NABL-Accredited Testing Labs** | Labs struggle to explain shelf-life testing requirements to low-literacy micro-unit owners in local languages. | The Batch Traceability Agent generates a vernacular-language NABL Lab Referral Notice (PDF) with the product category, expected moisture range, and test parameters pre-filled — reducing lab intake friction and callback loops. |
+| **Food Safety Officers (FSSAI / State FDA)** | Difficulty verifying that micro-units hold the correct registration tier for their turnover and sales channel. | The FSSAI Compliance Agent auto-checks declared annual turnover against ₹12 lakh Basic / ₹20 crore State license thresholds and flags any mismatch. Every Batch Passport carries the FSSAI number and tier for officer inspection. |
+| **Retailers & Online Marketplaces** | High vendor-vetting friction; no standardised, verifiable batch documentation from small suppliers. | The Digital Batch Passport with a scannable QR code provides retailers one-click access to ingredient lineage, allergen summary, lab test status, and owner sign-off. |
+| **Packaging Suppliers** | Micro-units order incorrect pack sizes because they do not calculate accurate batch yields in advance. | The Unit Economics Agent computes exact jar/pouch quantities required per batch from declared batch weight and pack-size selection. |
+| **NABL-Accredited Testing Labs** | Labs struggle to explain shelf-life testing requirements to low-literacy micro-unit owners in local languages. | The Batch Traceability Agent generates a vernacular-language NABL Lab Referral Notice PDF with product category, moisture range, and test parameters pre-filled. |
 
 #### Field Discovery Question Answers
 
 | Field Discovery Question | AhaarSetu's Direct Answer |
 |---|---|
-| **Q1 — FSSAI Registration Tier Awareness:** Does the owner know which FSSAI tier they need for online or inter-state sales? | The Compliance Agent compares the owner's declared turnover to FSSAI tier thresholds and shows a plain-language upgrade prompt in the owner's regional language if a State License is required. |
-| **Q2 — Retailer Onboarding Requirements:** What documentation do supermarkets and ONDC require before listing a product? | AhaarSetu's Buyer Readiness Dossier pre-populates the nine fields most commonly required by retail buyers: FSSAI number, product category code, batch lot ID, ingredient declaration, allergen statement, nutritional panel, MRP, lab test status, and QR verification link. |
-| **Q3 — Batch & Ingredient Recording:** Are ingredients and batch details currently recorded? | The Vernacular Voice-to-Batch Engine accepts spoken input in Telugu/Kannada/Hindi/Tamil and converts it into a structured batch log with ingredient weights, purchase dates, and lot codes — requiring zero writing or typing from the owner. |
-| **Q4 — Lab-Backed Shelf Life:** How do units currently set best-before dates, and are they lab-validated? | The Batch Traceability Agent enforces a hard guardrail: best-before windows beyond the product category's default safe period (e.g., 6 months for oil-based pickles) are blocked until a NABL lab report URL is recorded. |
-| **Q5 — True Unit Costing:** Do owners calculate real landed cost including packaging, fuel, and labour? | The Unit Economics Agent captures raw material cost, packaging, LPG/fuel, labour hours, amortised NABL lab test fee, and retail channel margin — and alerts the owner if the target MRP falls below the calculated break-even price. |
-| **Q6 — Targeted Batch Recall:** Can the unit recall a specific bad batch without pulling all stock? | Every production run receives a unique Batch ID (e.g., `MNG-20261115-B01`) linked to raw ingredient purchase dates. If a recall is needed, the system identifies exactly which jars belong to the affected lot — eliminating full-consignment scrapping. |
+| **Q1 — FSSAI Registration Tier Awareness** | The Compliance Agent compares declared turnover to tier thresholds and shows a plain-language upgrade prompt in the owner's regional language if a State License is required. |
+| **Q2 — Retailer Onboarding Requirements** | The Buyer Readiness Dossier pre-populates nine fields most commonly required by retail buyers: FSSAI number, category code, batch lot ID, ingredient declaration, allergen statement, nutritional panel, MRP, lab test status, and QR verification link. |
+| **Q3 — Batch & Ingredient Recording** | The Vernacular Voice-to-Batch Engine accepts spoken input in Telugu/Kannada/Hindi/Tamil and converts it into a structured batch log with ingredient weights, purchase dates, and lot codes — requiring zero writing or typing. |
+| **Q4 — Lab-Backed Shelf Life** | The Batch Traceability Agent enforces a hard guardrail: best-before windows beyond the category's default safe period are blocked until a NABL lab report URL is recorded. |
+| **Q5 — True Unit Costing** | The Unit Economics Agent captures raw material cost, packaging, LPG/fuel, labour, amortised NABL lab test fee, and retail channel margin — and alerts the owner if the target MRP falls below the break-even price. |
+| **Q6 — Targeted Batch Recall** | Every production run receives a unique Batch ID (e.g., `MNG-20261115-B01`) linked to raw ingredient purchase dates. If a recall is needed, the system identifies exactly which jars belong to the affected lot. |
 
-> **Regulatory Boundary Reminder:** AhaarSetu operates strictly on the **support side of compliance**. FSSAI registration, food safety certification, and shelf-life validation remain exclusively with the **regulator and NABL-accredited labs**. The human business owner holds **mandatory final sign-off authority** on every label and selling price before printing.
+> **Regulatory Boundary:** AhaarSetu operates strictly on the **support side of compliance**. FSSAI registration, food safety certification, and shelf-life validation remain exclusively with the **regulator and NABL-accredited labs**. The human business owner holds **mandatory final sign-off authority** on every label and selling price before printing.
 
 ---
 
 ## 3. Our Solution
 
-AhaarSetu AI combines three tightly integrated modules built specifically for low-literacy users on entry-level Android smartphones:
+AhaarSetu AI combines three tightly integrated modules built for low-literacy users on entry-level Android smartphones:
 
 ### A. Vernacular Voice-to-Batch & Label Engine
 
 A voice-first intake workflow that converts spoken kitchen recipes into structured production logs and compliant label drafts:
 
 1. Owner selects or creates a food product profile.
-2. Owner taps the microphone and speaks the batch details in their mother tongue (*e.g., "6 kg raw mango, 1.5 kg gingelly oil, 1 kg chilli powder, packed in 250g jars"*).
+2. Owner speaks the batch details in their mother tongue (*e.g., "6 kg raw mango, 1.5 kg gingelly oil, 1 kg chilli powder, packed in 250g jars"*).
 3. Local measurements (*pavu*, *seer*, tins) are normalized into metric grams.
 4. Ingredients are automatically sorted in **descending order of weight** per FSSAI Labelling & Display Regulations.
 5. Mandatory **allergens** (mustard, sesame, groundnut, gluten, milk) and **INS additive codes** are flagged.
@@ -92,7 +91,7 @@ A voice-first intake workflow that converts spoken kitchen recipes into structur
 AhaarSetu orchestrates four bounded AI agents paired with a deterministic rule engine so regulatory text never hallucinates:
 
 1. **Vernacular Intake Agent:** Transcribes regional speech and extracts structured ingredient weights, pack sizes, and batch quantities.
-2. **FSSAI & Legal Metrology Compliance Agent:** Checks Basic vs. State license thresholds, maps food category codes, and validates mandatory label declarations. Applies **category-specific rules** (e.g., moisture limits for flour mill products differ from oil-based pickles) and **scale-specific rules** (Basic Registration vs. State License vs. Central License).
+2. **FSSAI & Legal Metrology Compliance Agent:** Checks Basic vs. State license thresholds, maps food category codes, and validates mandatory label declarations. Applies **category-specific rules** (e.g., moisture limits for flour mill products differ from oil-based pickles) and **scale-specific rules** (Basic Registration vs. State vs. Central License).
 3. **Unit Economics & Pricing Agent:** Calculates true landed cost per pack (raw materials + packaging + fuel + labour + amortised lab testing + retail margin) and alerts the owner if their selling price loses money.
 4. **Batch Traceability & Lab-Guardrail Agent:** Assigns lot codes, tracks expiry windows, and triggers reminders to connect with **NABL-accredited food testing labs** for shelf-life validation.
 
@@ -112,7 +111,7 @@ After each batch is logged, the system generates a structured digital record:
 | **Owner Approval** | Mandatory human sign-off timestamp by the business owner |
 | **QR Code & Buyer Dossier** | Scannable QR code + 1-page WhatsApp PDF for supermarket/ONDC buyers |
 
-> **Important Regulatory Boundary:** AhaarSetu AI operates strictly on the **support side of compliance**. Certifying food safety and shelf-life remains exclusively with **FSSAI and NABL-accredited testing labs**, and the **human business owner retains mandatory final sign-off authority** on every label and selling price before printing.
+> **Important Regulatory Boundary:** Certifying food safety and shelf-life remains exclusively with **FSSAI and NABL-accredited testing labs**. The **human business owner retains mandatory final sign-off authority** on every label and selling price before printing.
 
 ---
 
@@ -255,16 +254,62 @@ SHAREABLE BUYER VERIFICATION LINK
 | Label & QR Generation | jsPDF + html2canvas + qrcode.react | Generates print-ready DTP sticker PDFs and scannable batch QR codes in-browser. |
 | Deployment | Vercel (PWA) + Render (Node/Express API) | HTTPS-enabled cloud hosting for mobile mic access and PWA installation. |
 
+> *Technology choices may evolve during implementation and benchmarking.*
+
 ---
 
-## 8. Regulatory & Dataset Foundation
+## 8. AI & Research Foundation
 
-AhaarSetu grounds its compliance logic and nutritional calculations in established Indian public standards:
+Each AI technique in AhaarSetu is grounded in peer-reviewed research. The deterministic rule engine ensures that regulatory text is never generated by the LLM alone.
 
-- **FSSAI (Food Safety and Standards) Packaging & Labelling Regulations:** Governs descending ingredient weight ordering, vegetarian/non-vegetarian symbols, allergen declarations, INS additive naming, and FoSCoS Basic vs. State license criteria ([fssai.gov.in](https://www.fssai.gov.in/)).
-- **Legal Metrology (Packaged Commodities) Rules:** Governs net quantity declarations, MRP formatting, and minimum numeral/font heights relative to the Principal Display Panel (PDP) area — scaled by pack size.
-- **ICMR–NIN Indian Food Composition Tables (IFCT):** Provides verified nutritional values per 100g for Indian raw ingredients (spices, pulses, millets, oils, fruits, flours) used to compute indicative nutrition panels ([nin.res.in](https://www.nin.res.in/)).
-- **PMFME & One District One Product (ODOP) Ecosystem:** Aligns onboarding workflows with District Resource Persons (DRPs) supporting micro food enterprise formalisation ([pmfme.mofpi.gov.in](https://pmfme.mofpi.gov.in/)).
+---
+
+**IndicWhisper / Bhashini Vernacular ASR**
+
+Explores fine-tuned Whisper speech recognition models for low-resource Indian languages (Telugu, Kannada, Hindi, Tamil) in noisy home-kitchen environments.
+
+Research: *Towards Whispering in Indian Languages.*
+INTERSPEECH 2023.
+[https://arxiv.org/abs/2306.07728](https://arxiv.org/abs/2306.07728)
+
+---
+
+**Retrieval-Augmented Regulatory Grounding (RAG)**
+
+Combines parametric LLMs with non-parametric regulatory knowledge retrieval so FSSAI category rules and allergen declarations stay grounded without hallucination.
+
+Research: *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.*
+NeurIPS 2020.
+[https://arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)
+
+---
+
+**Bounded Tool-Calling Agent Workflows (ReAct)**
+
+Interleaves step-by-step reasoning with deterministic rule-engine and unit-costing tool calls to keep compliance calculations auditable.
+
+Research: *ReAct: Synergizing Reasoning and Acting in Language Models.*
+ICLR 2023.
+[https://arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629)
+
+---
+
+**Local-First Offline Synchronization**
+
+Enables mobile web apps to read/write batch logs locally on-device with zero network latency and sync cleanly when rural connectivity returns.
+
+Research: *Local-First Software: You Own Your Data, in Spite of the Cloud.*
+ACM SIGPLAN Onward! 2019.
+[https://www.inkandswitch.com/local-first/](https://www.inkandswitch.com/local-first/)
+
+---
+
+### Regulatory & Public Datasets
+
+- **FSSAI Food Safety and Standards (Labelling & Display) Regulations** — Governs descending ingredient weight ordering, vegetarian/non-vegetarian symbols, allergen declarations, INS additive naming, and FoSCoS Basic vs. State license criteria. ([fssai.gov.in](https://www.fssai.gov.in/))
+- **Legal Metrology (Packaged Commodities) Rules** — Governs net quantity declarations, MRP formatting, and minimum font heights relative to the Principal Display Panel (PDP) area, scaled by pack size.
+- **ICMR–NIN Indian Food Composition Tables (IFCT)** — Provides verified nutritional values per 100g for Indian raw ingredients (spices, pulses, millets, oils, fruits, flours) used to compute indicative nutrition panels. ([nin.res.in](https://www.nin.res.in/))
+- **PMFME & One District One Product (ODOP) Ecosystem** — Aligns onboarding workflows with District Resource Persons (DRPs) supporting micro food enterprise formalisation. ([pmfme.mofpi.gov.in](https://pmfme.mofpi.gov.in/))
 
 ---
 
@@ -281,16 +326,27 @@ AhaarSetu grounds its compliance logic and nutritional calculations in establish
 | Digital Batch Passport & Buyer Dossier | Converts informal kitchen logs into standardized, QR-verifiable proof for retail buyers. |
 | NABL Lab Referral Notice | Auto-generates a vernacular PDF referral with pre-filled test parameters to reduce lab intake friction. |
 
+**Our central differentiation:** AhaarSetu AI does not merely generate text labels — it combines vernacular voice intake, true unit margin protection, and QR-verifiable batch passports into one offline-first workflow built specifically for micro food processors.
+
 ---
 
 ## 10. Business Model
 
 AhaarSetu follows a sustainable B2B2C ecosystem model:
 
-- **Freemium Micro-Processor Tier:** Free vernacular batch logging and basic unit costing forever so any home-based unit can adopt the platform at zero risk.
-- **Pro Compliance Subscription (₹99/month):** Unlimited print-ready FSSAI label generation, hosted QR Batch Passports, and multi-SKU cost tracking.
-- **B2B Retail & Aggregator Onboarding SaaS:** Regional supermarket chains, distributors, and ONDC seller networks pay a discovery and onboarding fee to source pre-verified, retail-ready micro-suppliers — dramatically reducing buyer vendor-vetting costs.
-- **Institutional / FPO Cluster Licensing:** Bulk onboarding partnerships with SHG federations, FPOs, and PMFME support agencies.
+**1. Freemium Micro-Processor Tier**
+Free vernacular batch logging and basic unit costing forever, so any home-based unit can adopt the platform at zero risk.
+
+**2. Pro Compliance Subscription (₹99/month)**
+Unlimited print-ready FSSAI label generation, hosted QR Batch Passports, and multi-SKU cost tracking.
+
+**3. B2B Retail & Aggregator Onboarding SaaS**
+Regional supermarket chains, distributors, and ONDC seller networks pay a discovery and onboarding fee to source pre-verified, retail-ready micro-suppliers — dramatically reducing vendor-vetting costs.
+
+**4. Institutional / FPO Cluster Licensing**
+Bulk onboarding partnerships with SHG federations, FPOs, and PMFME support agencies.
+
+> *These models are proposed opportunities and require customer and field validation.*
 
 ---
 
@@ -301,15 +357,19 @@ AhaarSetu follows a sustainable B2B2C ecosystem model:
 - **Regulatory Safety:** Reduces accidental misbranding violations while guiding units toward accredited NABL lab testing.
 - **Empowering Women Entrepreneurs:** Built specifically around the workflow and device realities of women-led micro enterprises and SHGs.
 
+> *The actual impact will be evaluated through micro-processor field pilots and measured operational outcomes.*
+
 ---
 
 ## 12. Development Roadmap
 
-- **Phase 1 (Round 1 – Idea & Architecture):** Field discovery with local micro food units, FSSAI rule mapping per category and scale tier, and multi-agent system design.
-- **Phase 2 (Prototype Sprint – Core Engine):** MongoDB/Dexie schemas, IFCT nutrition integration, deterministic FSSAI label sorter with category/scale rule modules, and unit costing calculator.
-- **Phase 3 (Prototype Sprint – Lyzr AI & Vernacular UI):** 4-agent Lyzr AI pipeline, regional voice intake (Bhashini), and offline-first mobile PWA interface.
-- **Phase 4 (Prototype Sprint – Passports & Human Sign-Off):** Mandatory owner approval workflow, print-ready PDF sticker generator, QR Batch Passport screen, and NABL Lab Referral Notice generator.
-- **Phase 5 (Field Testing & Finale):** Usability testing with local pickle/spice/flour-mill makers, incorporating feedback, and live demonstration at GAVS 2026.
+| Phase | Planned Work |
+|---|---|
+| **Phase 1** — Round 1: Idea & Architecture | Field discovery with local micro food units, FSSAI rule mapping per category and scale tier, and multi-agent system design. |
+| **Phase 2** — Prototype Sprint: Core Engine | MongoDB/Dexie schemas, IFCT nutrition integration, deterministic FSSAI label sorter with category/scale rule modules, and unit costing calculator. |
+| **Phase 3** — Prototype Sprint: Lyzr AI & Vernacular UI | 4-agent Lyzr AI pipeline, regional voice intake (Bhashini), and offline-first mobile PWA interface. |
+| **Phase 4** — Prototype Sprint: Passports & Human Sign-Off | Mandatory owner approval workflow, print-ready PDF sticker generator, QR Batch Passport screen, and NABL Lab Referral Notice generator. |
+| **Phase 5** — Field Testing & Finale | Usability testing with local pickle/spice/flour-mill makers, incorporating feedback, and live demonstration at GAVS 2026. |
 
 ---
 
