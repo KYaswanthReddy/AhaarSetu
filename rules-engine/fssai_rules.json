@@ -1,8 +1,9 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "regulation": "FSSAI Food Safety and Standards (Labelling and Display) Regulations",
   "last_updated": "2026-11-15",
-  "note": "Deterministic rule definitions for Round 1 architecture. Full implementation in Phase 2.",
+  "note": "Deterministic rule definitions used by fssaiValidator.js. All AI agents reference this file. No regulatory text is generated without these hard-coded rules.",
+
   "mandatory_label_fields": [
     "product_name",
     "net_quantity_metric",
@@ -17,6 +18,7 @@
     "batch_lot_number",
     "country_of_origin"
   ],
+
   "allergens_to_flag": [
     "mustard",
     "sesame",
@@ -32,32 +34,138 @@
     "eggs",
     "sulphites"
   ],
+
+  "allergen_keyword_map": {
+    "mustard":   ["mustard", "sarson", "rai", "kadugu"],
+    "sesame":    ["sesame", "til", "gingelly", "ellu"],
+    "groundnut": ["groundnut", "peanut", "moongphali", "verkadalai"],
+    "gluten":    ["wheat", "atta", "maida", "semolina", "rava", "barley", "rye", "oat"],
+    "milk":      ["milk", "dairy", "cream", "butter", "ghee", "paneer", "curd", "whey", "lactose"],
+    "treenuts":  ["cashew", "kaju", "almond", "badam", "walnut", "pistachio", "pista"],
+    "soy":       ["soy", "soya", "tofu"],
+    "sulphites": ["sulphite", "sulfite", "ins 220", "ins 221", "ins 222", "ins 223", "ins 224", "ins 225"]
+  },
+
   "fssai_registration_tiers": {
-    "basic_registration": {
-      "annual_turnover_max_inr": 1200000,
-      "note": "For home-based units with turnover < ₹12 lakh/year"
+    "basic": {
+      "max_annual_turnover_inr": 1200000,
+      "fssai_number_suffix": "R",
+      "label": "Basic Registration",
+      "inter_state_allowed": false,
+      "ecommerce_allowed": false,
+      "nutrition_panel_mandatory": false,
+      "note": "For home-based units with annual turnover < ₹12 lakh. Intra-state / local sales only."
     },
-    "state_license": {
-      "annual_turnover_min_inr": 1200000,
-      "annual_turnover_max_inr": 200000000,
-      "note": "Required for inter-state sales and e-commerce listing"
+    "state": {
+      "min_annual_turnover_inr": 1200000,
+      "max_annual_turnover_inr": 200000000,
+      "fssai_number_suffix": "L",
+      "label": "State License",
+      "inter_state_allowed": true,
+      "ecommerce_allowed": true,
+      "nutrition_panel_mandatory": true,
+      "note": "Required for inter-state sales, ONDC, Amazon, supermarkets. Turnover ₹12 lakh – ₹20 crore."
     },
-    "central_license": {
-      "annual_turnover_min_inr": 200000000,
-      "note": "Required for large-scale manufacturers and importers"
+    "central": {
+      "min_annual_turnover_inr": 200000000,
+      "fssai_number_suffix": "L",
+      "label": "Central License",
+      "inter_state_allowed": true,
+      "ecommerce_allowed": true,
+      "nutrition_panel_mandatory": true,
+      "note": "For large-scale manufacturers. Turnover > ₹20 crore."
     }
   },
+
   "legal_metrology_font_rules": {
-    "pdp_area_cm2_less_than_100": { "min_height_mm": 1 },
-    "pdp_area_cm2_100_to_200": { "min_height_mm": 2 },
-    "pdp_area_cm2_200_to_500": { "min_height_mm": 4 },
-    "pdp_area_cm2_above_500": { "min_height_mm": 6 }
+    "description": "Minimum font height (mm) for mandatory declarations on the Principal Display Panel (PDP), per Legal Metrology (Packaged Commodities) Rules, Rule 6.",
+    "rules": [
+      { "pdp_area_max_cm2": 100,      "min_font_mm": 1, "approx_pack_size_max_g": 50  },
+      { "pdp_area_max_cm2": 200,      "min_font_mm": 2, "approx_pack_size_max_g": 200 },
+      { "pdp_area_max_cm2": 500,      "min_font_mm": 4, "approx_pack_size_max_g": 500 },
+      { "pdp_area_max_cm2": 99999999, "min_font_mm": 6, "approx_pack_size_max_g": null }
+    ]
   },
-  "product_categories_in_scope": [
-    "pickles_and_chutneys",
-    "spice_powders_masalas",
-    "millet_snacks",
-    "papads",
-    "cold_pressed_oils"
-  ]
+
+  "product_categories": {
+    "pickles_and_chutneys": {
+      "fssai_category_code": "04.2.2",
+      "default_shelf_life_months_without_nabl": 6,
+      "max_shelf_life_months_with_nabl": 24,
+      "category_specific_rules": {
+        "must_declare_acidity_or_salt": true,
+        "must_declare_oil_type": true,
+        "moisture_limit_percent_max": 25,
+        "ins_codes_common": ["INS 211", "INS 202", "INS 260"]
+      }
+    },
+    "spice_powders_masalas": {
+      "fssai_category_code": "12.2",
+      "default_shelf_life_months_without_nabl": 9,
+      "max_shelf_life_months_with_nabl": 18,
+      "category_specific_rules": {
+        "must_declare_colourant_ins_codes": true,
+        "synthetic_colour_prohibited_without_declaration": true,
+        "moisture_limit_percent_max": 10,
+        "ins_codes_common": ["INS 160a", "INS 100", "INS 160c"]
+      }
+    },
+    "millet_snacks": {
+      "fssai_category_code": "15.1",
+      "default_shelf_life_months_without_nabl": 3,
+      "max_shelf_life_months_with_nabl": 12,
+      "category_specific_rules": {
+        "millet_name_first_if_majority": true,
+        "millet_types_recognised": ["foxtail", "ragi", "finger millet", "jowar", "bajra", "kodo", "little millet", "barnyard millet"],
+        "must_declare_trans_fat": true
+      }
+    },
+    "flour_mill_products": {
+      "fssai_category_code": "06.2",
+      "default_shelf_life_months_without_nabl": 3,
+      "max_shelf_life_months_with_nabl": 12,
+      "category_specific_rules": {
+        "must_declare_fortification_status": true,
+        "mandatory_fortification_nutrients": ["iron", "folic_acid"],
+        "must_declare_ash_content_for_atta_maida": true,
+        "subtypes": {
+          "atta":  { "default_shelf_life_months": 3, "moisture_limit_percent_max": 14 },
+          "maida": { "default_shelf_life_months": 6, "moisture_limit_percent_max": 14 },
+          "besan": { "default_shelf_life_months": 6, "moisture_limit_percent_max": 10 }
+        }
+      }
+    },
+    "papads": {
+      "fssai_category_code": "06.4.3",
+      "default_shelf_life_months_without_nabl": 6,
+      "max_shelf_life_months_with_nabl": 12,
+      "category_specific_rules": {
+        "must_declare_preservatives": true,
+        "ins_codes_common": ["INS 224"],
+        "must_flag_gluten_allergen": true,
+        "must_flag_black_pepper_if_used": true
+      }
+    },
+    "cold_pressed_oils": {
+      "fssai_category_code": "02.1",
+      "default_shelf_life_months_without_nabl": 6,
+      "max_shelf_life_months_with_nabl": 12,
+      "category_specific_rules": {
+        "must_validate_cold_pressed_claim": true,
+        "extraction_method_must_be_declared": true,
+        "must_declare_ffa_percent": true,
+        "ffa_limit_percent_max": 2.5
+      }
+    }
+  },
+
+  "local_unit_conversions": {
+    "note": "Hard-coded conversions used by Vernacular Intake Agent. Not AI-generated.",
+    "pavu":   { "grams": 250,   "region": "South India" },
+    "seer":   { "grams": 933,   "region": "South India / Pakistan" },
+    "viss":   { "grams": 1600,  "region": "Tamil Nadu" },
+    "mana":   { "grams": 650,   "region": "Andhra Pradesh" },
+    "tin":    { "grams": 15000, "region": "General (oil/ghee)" },
+    "karela": { "grams": 100,   "region": "North India (approximate)" }
+  }
 }
