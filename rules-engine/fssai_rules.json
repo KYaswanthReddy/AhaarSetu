@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "regulation": "FSSAI Food Safety and Standards (Labelling and Display) Regulations",
+  "last_updated": "2026-11-15",
+  "note": "Deterministic rule definitions for Round 1 architecture. Full implementation in Phase 2.",
+  "mandatory_label_fields": [
+    "product_name",
+    "net_quantity_metric",
+    "ingredient_list_descending_weight",
+    "nutritional_info_per_100g",
+    "allergen_declaration",
+    "fssai_license_number",
+    "manufacturer_name_address",
+    "best_before_date",
+    "mrp_inclusive_all_taxes",
+    "veg_nonveg_symbol",
+    "batch_lot_number",
+    "country_of_origin"
+  ],
+  "allergens_to_flag": [
+    "mustard",
+    "sesame",
+    "groundnut",
+    "peanut",
+    "gluten",
+    "wheat",
+    "milk",
+    "tree_nuts",
+    "soy",
+    "fish",
+    "shellfish",
+    "eggs",
+    "sulphites"
+  ],
+  "fssai_registration_tiers": {
+    "basic_registration": {
+      "annual_turnover_max_inr": 1200000,
+      "note": "For home-based units with turnover < ₹12 lakh/year"
+    },
+    "state_license": {
+      "annual_turnover_min_inr": 1200000,
+      "annual_turnover_max_inr": 200000000,
+      "note": "Required for inter-state sales and e-commerce listing"
+    },
+    "central_license": {
+      "annual_turnover_min_inr": 200000000,
+      "note": "Required for large-scale manufacturers and importers"
+    }
+  },
+  "legal_metrology_font_rules": {
+    "pdp_area_cm2_less_than_100": { "min_height_mm": 1 },
+    "pdp_area_cm2_100_to_200": { "min_height_mm": 2 },
+    "pdp_area_cm2_200_to_500": { "min_height_mm": 4 },
+    "pdp_area_cm2_above_500": { "min_height_mm": 6 }
+  },
+  "product_categories_in_scope": [
+    "pickles_and_chutneys",
+    "spice_powders_masalas",
+    "millet_snacks",
+    "papads",
+    "cold_pressed_oils"
+  ]
+}

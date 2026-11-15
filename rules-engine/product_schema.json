@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AhaarSetu Product Profile Schema",
+  "version": "1.0.0",
+  "description": "Schema for a micro food processor's product master record.",
+  "type": "object",
+  "required": [
+    "product_id",
+    "product_name",
+    "category_code",
+    "owner_fssai_number",
+    "unit_name",
+    "district",
+    "state"
+  ],
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "description": "Unique product identifier (e.g., PROD-MNG-001)"
+    },
+    "product_name": {
+      "type": "string",
+      "description": "Product name as it will appear on the label"
+    },
+    "category_code": {
+      "type": "string",
+      "enum": ["pickles_and_chutneys", "spice_powders_masalas", "millet_snacks", "papads", "cold_pressed_oils"],
+      "description": "FSSAI product category"
+    },
+    "owner_fssai_number": {
+      "type": "string",
+      "description": "14-digit FSSAI registration or license number"
+    },
+    "unit_name": {
+      "type": "string",
+      "description": "Name of the micro food processing unit"
+    },
+    "district": { "type": "string" },
+    "state": { "type": "string" },
+    "preferred_language": {
+      "type": "string",
+      "enum": ["telugu", "kannada", "hindi", "tamil", "english"],
+      "default": "telugu"
+    },
+    "pack_sizes_grams": {
+      "type": "array",
+      "items": { "type": "number" },
+      "description": "Available pack sizes in grams (e.g., [100, 250, 500])"
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  }
+}

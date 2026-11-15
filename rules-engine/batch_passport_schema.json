@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AhaarSetu Digital Batch Passport Schema",
+  "version": "1.0.0",
+  "description": "Schema for a QR-linked Digital Batch Passport generated after each production batch.",
+  "type": "object",
+  "required": [
+    "batch_id",
+    "product_id",
+    "owner_fssai_number",
+    "manufacture_date",
+    "best_before_date",
+    "ingredients",
+    "pack_size_grams",
+    "quantity_packed",
+    "unit_cost_inr",
+    "mrp_inr",
+    "owner_sign_off"
+  ],
+  "properties": {
+    "batch_id": {
+      "type": "string",
+      "description": "Unique lot identifier (e.g., MNG-20261115-B01)",
+      "pattern": "^[A-Z]{2,6}-[0-9]{8}-B[0-9]{2}$"
+    },
+    "product_id": { "type": "string" },
+    "owner_fssai_number": { "type": "string" },
+    "manufacture_date": { "type": "string", "format": "date" },
+    "best_before_date": { "type": "string", "format": "date" },
+    "ingredients": {
+      "type": "array",
+      "description": "Ingredients sorted in descending order of weight (FSSAI requirement)",
+      "items": {
+        "type": "object",
+        "required": ["name", "weight_grams", "purchase_date"],
+        "properties": {
+          "name": { "type": "string" },
+          "name_local": { "type": "string", "description": "Name in regional language" },
+          "weight_grams": { "type": "number" },
+          "is_allergen": { "type": "boolean", "default": false },
+          "ins_code": { "type": "string", "description": "INS additive code if applicable" },
+          "purchase_date": { "type": "string", "format": "date" },
+          "supplier_name": { "type": "string" }
+        }
+      }
+    },
+    "pack_size_grams": { "type": "number" },
+    "quantity_packed": { "type": "integer" },
+    "nutrition_per_100g": {
+      "type": "object",
+      "properties": {
+        "energy_kcal": { "type": "number" },
+        "protein_g": { "type": "number" },
+        "carbohydrates_g": { "type": "number" },
+        "total_fat_g": { "type": "number" },
+        "dietary_fibre_g": { "type": "number" },
+        "sodium_mg": { "type": "number" }
+      }
+    },
+    "unit_cost_breakdown_inr": {
+      "type": "object",
+      "properties": {
+        "raw_materials": { "type": "number" },
+        "packaging": { "type": "number" },
+        "fuel_lpg": { "type": "number" },
+        "labour": { "type": "number" },
+        "amortised_lab_testing": { "type": "number" },
+        "total_landed_cost": { "type": "number" }
+      }
+    },
+    "unit_cost_inr": { "type": "number" },
+    "mrp_inr": { "type": "number" },
+    "retail_margin_percent": { "type": "number" },
+    "nabl_lab_test_status": {
+      "type": "string",
+      "enum": ["not_submitted", "submitted", "report_received", "exempted_basic_tier"],
+      "default": "not_submitted"
+    },
+    "nabl_report_url": { "type": "string", "format": "uri" },
+    "owner_sign_off": {
+      "type": "object",
+      "required": ["signed", "timestamp"],
+      "properties": {
+        "signed": { "type": "boolean" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "owner_name": { "type": "string" }
+      }
+    },
+    "qr_verification_url": { "type": "string", "format": "uri" },
+    "sync_status": {
+      "type": "string",
+      "enum": ["local_only", "synced"],
+      "default": "local_only"
+    },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}
