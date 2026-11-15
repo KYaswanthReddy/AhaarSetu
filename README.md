@@ -335,15 +335,19 @@ ACM SIGPLAN Onward! 2019.
 AhaarSetu follows a sustainable B2B2C ecosystem model:
 
 **1. Freemium Micro-Processor Tier**
+
 Free vernacular batch logging and basic unit costing forever, so any home-based unit can adopt the platform at zero risk.
 
 **2. Pro Compliance Subscription (₹99/month)**
+
 Unlimited print-ready FSSAI label generation, hosted QR Batch Passports, and multi-SKU cost tracking.
 
 **3. B2B Retail & Aggregator Onboarding SaaS**
+
 Regional supermarket chains, distributors, and ONDC seller networks pay a discovery and onboarding fee to source pre-verified, retail-ready micro-suppliers — dramatically reducing vendor-vetting costs.
 
 **4. Institutional / FPO Cluster Licensing**
+
 Bulk onboarding partnerships with SHG federations, FPOs, and PMFME support agencies.
 
 > *These models are proposed opportunities and require customer and field validation.*
