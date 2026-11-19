@@ -1,0 +1,10 @@
+{
+  "allergens": [
+    { "name": "mustard", "aliases": ["mustard seeds", "sarson", "aavalu"], "ins": null },
+    { "name": "sesame", "aliases": ["til", "nuvvulu", "gingelly", "sesame seeds"], "ins": null },
+    { "name": "groundnut", "aliases": ["peanut", "moongphali", "pallilu"], "ins": null },
+    { "name": "gluten", "aliases": ["wheat", "maida", "atta", "barley", "rye"], "ins": null },
+    { "name": "milk", "aliases": ["dairy", "paneer", "ghee", "butter", "curd"], "ins": null },
+    { "name": "tree nuts", "aliases": ["cashew", "almond", "walnut", "kaju", "badam"], "ins": null }
+  ]
+}
