@@ -1,37 +1,25 @@
-# AhaarSetu AI — Multi-Agent Design
+# AhaarSetu AI — Agent Specifications
 
-**Powered by Lyzr AI Multi-Agent Framework**
+## Agent 1: Vernacular Intake Agent
+- **Input:** Regional speech / text (Telugu, Kannada, Hindi, Tamil)
+- **Output:** Structured JSON — ingredient list with weights in grams, batch quantity, pack size
+- **Tools:** Bhashini ASR API, Unit Normalizer
+- **Guardrail:** Confirms each ingredient back to user before proceeding
 
-## Agent Definitions
+## Agent 2: FSSAI & Legal Metrology Compliance Agent
+- **Input:** Ingredient JSON + product category + FSSAI tier
+- **Output:** Validated label draft with compliance flags
+- **Tools:** Deterministic FSSAI Rule Engine (JSON), Allergen Detector
+- **Guardrail:** Never generates regulatory text from LLM alone — rule engine enforces all declarations
 
-### 1. Vernacular Intake Agent
-- **Role:** Speech-to-structured-data converter
-- **Input:** Raw vernacular speech transcript (Telugu/Kannada/Hindi/Tamil)
-- **Output:** `{ ingredients: [{name, weight_grams}], pack_size_grams, quantity_packed, batch_date }`
-- **Guardrails:** Must extract numeric weights; if ambiguous, asks clarifying voice prompt
+## Agent 3: Unit Economics & Pricing Agent
+- **Input:** Ingredient costs + packaging + LPG + labour + lab fee + target MRP
+- **Output:** True landed cost per pack, margin %, break-even alert
+- **Tools:** Unit Margin Calculator
+- **Guardrail:** Blocks label generation if MRP < break-even cost
 
-### 2. FSSAI & Legal Metrology Compliance Agent
-- **Role:** Label validator and compliance checker
-- **Input:** Structured ingredient list + product category + FSSAI number
-- **Output:** `{ label_valid: bool, missing_fields: [], allergen_flags: [], ins_codes: [], compliance_score: 0-100 }`
-- **Guardrails:** All decisions backed by deterministic `fssai_rules.json`; never hallucinates regulatory text
-
-### 3. Unit Economics & Pricing Agent
-- **Role:** True landed cost calculator
-- **Input:** Ingredient costs + packaging + LPG fuel + labour + amortised lab testing + target MRP
-- **Output:** `{ landed_cost_per_pack: ₹, break_even_mrp: ₹, margin_at_target_mrp: %, is_profitable: bool }`
-- **Guardrails:** Alerts owner if `margin_at_target_mrp < 0` before allowing label print
-
-### 4. Batch Traceability & Lab-Guardrail Agent
-- **Role:** Lot tracking and NABL lab reminder trigger
-- **Input:** Batch record + best-before date + NABL test status
-- **Output:** `{ batch_id: "MNG-20261115-B01", nabl_reminder_sent: bool, days_to_expiry: int }`
-- **Guardrails:** Cannot set `best_before_date` beyond safe window without NABL report URL on file
-
-## Human-in-the-Loop Checkpoint
-
-After all 4 agents complete:
-- Owner is shown a summary screen in their regional language
-- Owner must tap **"I Approve This Batch"** (voice-confirmed)
-- System timestamps the sign-off and locks the batch passport
-- **No label can be printed without this sign-off**
+## Agent 4: Batch Traceability & Lab-Guardrail Agent
+- **Input:** Batch details + declared shelf life
+- **Output:** Unique Batch ID, expiry window, NABL lab referral notice PDF
+- **Tools:** Batch ID Generator, PDF generator
+- **Guardrail:** Extended best-before dates blocked until NABL lab report URL is recorded
