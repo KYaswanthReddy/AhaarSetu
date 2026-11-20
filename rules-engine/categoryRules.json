@@ -1,0 +1,30 @@
+{
+  "pickles": {
+    "displayName": "Pickles & Chutneys",
+    "fssaiCategoryCode": "04.2.2.3",
+    "mandatoryDisclosures": ["oil_type", "acidity_regulator", "salt_percentage"],
+    "maxMoisturePct": 25,
+    "suggestedSafeDays": 90
+  },
+  "spice_powders": {
+    "displayName": "Spices and Condiments (Masalas/Podis)",
+    "fssaiCategoryCode": "12.2.1",
+    "mandatoryDisclosures": ["added_colours_ins", "moisture_content"],
+    "maxMoisturePct": 10,
+    "suggestedSafeDays": 180
+  },
+  "millet_snacks": {
+    "displayName": "Ready-to-Eat Millet Savouries",
+    "fssaiCategoryCode": "15.1",
+    "mandatoryDisclosures": ["millet_percentage", "trans_fat_content"],
+    "maxMoisturePct": 5,
+    "suggestedSafeDays": 45
+  },
+  "flour_mill": {
+    "displayName": "Milled Cereal Products (Atta/Maida/Flours)",
+    "fssaiCategoryCode": "06.2",
+    "mandatoryDisclosures": ["fortification_iron_folic_acid", "ash_content"],
+    "maxMoisturePct": 14,
+    "suggestedSafeDays": 60
+  }
+}
